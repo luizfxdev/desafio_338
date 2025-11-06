@@ -1,0 +1,139 @@
+$dark-blue: #031b2b;
+$action-color: #179eae;
+
+* {
+  box-sizing: border-box;
+}
+
+.button-wrapper {
+  display: block;
+  height: 100%;
+}
+
+.button {
+  -webkit-font-smoothing: antialiased;
+  background-color: $dark-blue;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  text-decoration: none;
+  user-select: none;
+  letter-spacing: 1px;
+  color: white;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $action-color;
+    color: #fff;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &--bubble {
+    position: relative;
+    z-index: 2;
+    color: white;
+    background: none;
+
+    &:hover {
+      background: none;
+    }
+
+    &:hover + .button--bubble__effect-container .circle {
+      background: darken($action-color, 15%);
+    }
+
+    &:hover + .button--bubble__effect-container .button {
+      background: darken($action-color, 15%);
+    }
+
+    &:active + .button--bubble__effect-container {
+      transform: scale(0.95);
+    }
+
+    &__container {
+      position: relative;
+      display: inline-block;
+
+      .effect-button {
+        position: absolute;
+        width: 50%;
+        height: 25%;
+        top: 50%;
+        left: 25%;
+        z-index: 1;
+        transform: translateY(-50%);
+        background: $dark-blue;
+        transition: background 0.1s ease-out;
+      }
+    }
+  }
+}
+
+.button--bubble__effect-container {
+  position: absolute;
+  display: block;
+  width: 200%;
+  height: 400%;
+  top: -150%;
+  left: -50%;
+  -webkit-filter: url('#goo-escolher');
+  filter: url('#goo-escolher');
+  transition: all 0.1s ease-out;
+  pointer-events: none;
+
+  .circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    background: $dark-blue;
+    transition: background 0.1s ease-out;
+
+    &.top-left {
+      top: 40%;
+      left: 27%;
+    }
+
+    &.bottom-right {
+      bottom: 40%;
+      right: 27%;
+    }
+  }
+}
+
+#retornar-btn {
+  & + .button--bubble__effect-container {
+    -webkit-filter: url('#goo-retornar');
+    filter: url('#goo-retornar');
+  }
+}
+
+.goo {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 18px 35px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 16px 30px;
+    font-size: 12px;
+  }
+}

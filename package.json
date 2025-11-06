@@ -1,0 +1,22 @@
+{
+  "name": "mickey-oswald-challenge",
+  "version": "1.0.0",
+  "description": "Mickey & Oswald - A Travessia dos Portais Mágicos",
+  "main": "index.html",
+  "scripts": {
+    "watch:scss": "sass --watch buttons.scss:buttons.css",
+    "build:scss": "sass buttons.scss:buttons.css",
+    "watch": "npm run watch:scss"
+  },
+  "keywords": [
+    "disney",
+    "mickey",
+    "oswald",
+    "challenge"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

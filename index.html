@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mickey & Oswald - A Travessia dos Portais Mágicos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&family=Cinzel:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="buttons.css" />
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay loop muted playsinline>
+      <source src="assets/background.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Audio Theme -->
+    <audio id="theme-audio" loop>
+      <source src="assets/theme.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Controles de Áudio -->
+    <div class="audio-controls">
+      <button id="play-audio" class="audio-btn" title="Tocar música">🎵</button>
+      <button id="pause-audio" class="audio-btn" title="Pausar música">⏸️</button>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+      <div class="challenge-header">
+        <h1 class="title">Mickey & Oswald em:</h1>
+        <h2 class="subtitle">A Travessia dos Portais Mágicos</h2>
+      </div>
+
+      <div class="challenge-description">
+        <p>
+          Mickey Mouse e Oswald, o Coelho Sortudo, embarcam juntos em uma aventura emocionante pelo universo Disney! A
+          chave para avançar é o <strong>pincel de tinta mágico</strong> do Mickey, que concede o poder de atravessar
+          portais e transformar o mundo ao seu redor.
+        </p>
+
+        <div class="challenge-info">
+          <h3>🌀 Desafio 1: A Travessia dos 7 Portais</h3>
+          <p>
+            Mickey enfrenta 7 Portais Mágicos. Calcule o tempo total necessário para completar a travessia somando os
+            segundos de cada portal.
+          </p>
+        </div>
+
+        <div class="challenge-info">
+          <h3>🎨 Desafio Extra: A Ponte das Cores Mágicas</h3>
+          <p>
+            Use o pincel de tinta para criar uma ponte sobre o abismo, unindo todas as cores mágicas e revelando a
+            mistura resultante.
+          </p>
+        </div>
+      </div>
+
+      <!-- Inputs -->
+      <div class="input-section">
+        <div class="input-group">
+          <label for="portais-input">⏱️ Tempo dos Portais (segundos):</label>
+          <input
+            type="text"
+            id="portais-input"
+            placeholder="Ex: 2, 3, 5, 4, 6, 10, 1"
+            aria-label="Tempo dos portais separados por vírgula"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="cores-input">🎨 Cores da Ponte:</label>
+          <input
+            type="text"
+            id="cores-input"
+            placeholder="Ex: azul, verde, preto"
+            aria-label="Cores separadas por vírgula"
+          />
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="buttons-container">
+        <!-- Botão ESCOLHER -->
+        <div class="button-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+            <defs>
+              <filter id="goo-escolher">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                  result="goo"
+                />
+                <feComposite in="SourceGraphic" in2="goo" />
+              </filter>
+            </defs>
+          </svg>
+          <span class="button--bubble__container">
+            <button class="button button--bubble" id="escolher-btn">
+              <b>Escolher</b>
+            </button>
+            <span class="button--bubble__effect-container">
+              <span class="circle top-left"></span>
+              <span class="circle top-left"></span>
+              <span class="circle top-left"></span>
+              <span class="button effect-button"></span>
+              <span class="circle bottom-right"></span>
+              <span class="circle bottom-right"></span>
+              <span class="circle bottom-right"></span>
+            </span>
+          </span>
+        </div>
+
+        <!-- Botão RETORNAR -->
+        <div class="button-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+            <defs>
+              <filter id="goo-retornar">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                  result="goo"
+                />
+                <feComposite in="SourceGraphic" in2="goo" />
+              </filter>
+            </defs>
+          </svg>
+          <span class="button--bubble__container">
+            <button class="button button--bubble" id="retornar-btn">
+              <b>Retornar</b>
+            </button>
+            <span class="button--bubble__effect-container">
+              <span class="circle top-left"></span>
+              <span class="circle top-left"></span>
+              <span class="circle top-left"></span>
+              <span class="button effect-button"></span>
+              <span class="circle bottom-right"></span>
+              <span class="circle bottom-right"></span>
+              <span class="circle bottom-right"></span>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Seção de Resultado -->
+      <div class="result-section" id="result-section">
+        <h3 class="result-title">✨ Resultado da Aventura</h3>
+        <div class="result-content" id="result-content">
+          <p class="result-placeholder">Preencha os campos e clique em ESCOLHER para iniciar a aventura!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="buttons.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
